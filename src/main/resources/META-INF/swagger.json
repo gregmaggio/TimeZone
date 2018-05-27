@@ -1,0 +1,62 @@
+{
+	"swagger" : "2.0",
+	"info" : {
+		"description" : "TimeZone API",
+		"version" : "1.0",
+		"title" : "TimeZone Service",
+		"license" : {
+			"name" : "Apache License Version 2.0"
+		}
+	},
+	"host" : "localhost:8080",
+	"basePath" : "/TimeZone",
+	"tags" : [{
+			"name" : "TimeZone-controller",
+			"description" : "TimeZone Controller"
+		}
+	],
+	"paths" : {		
+		"/api/{latitude}/{longitude}/timeZone" : {
+			"get" : {
+				"tags" : ["TimeZone-controller"],
+				"summary" : "readNearest",
+				"operationId" : "readNearest",
+				"consumes" : ["application/json"],
+				"produces" : ["*/*"],
+				"parameters" : [{
+						"name" : "latitude",
+						"in" : "path",
+						"description" : "latitude",
+						"required" : true,
+						"type" : "double"
+					},{
+						"name" : "longitude",
+						"in" : "path",
+						"description" : "longitude",
+						"required" : true,
+						"type" : "double"
+					}
+				],
+				"responses" : {
+					"200" : {
+						"description" : "OK",
+						"schema" : {
+							"type" : "string"
+						}
+					},
+					"401" : {
+						"description" : "Unauthorized"
+					},
+					"403" : {
+						"description" : "Forbidden"
+					},
+					"404" : {
+						"description" : "Not Found"
+					}
+				}
+			}
+		}
+	},
+	"definitions" : {
+	}
+}
