@@ -17,11 +17,11 @@ import org.junit.Test;
  *
  */
 public class TimeZoneDAOTester {
-	private static Logger _logger = LogManager.getLogger(TimeZoneDAOTester.class);
+	private static Logger logger = LogManager.getLogger(TimeZoneDAOTester.class);
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		DOMConfigurator.configure("src/test/resources/META-INF/log4j.cfg.xml");
+		DOMConfigurator.configure("src/test/resources/log4j.cfg.xml");
 		BaseDAO.setDataPath((new File("src/test/resources/data")).getAbsolutePath());
 	}
 
@@ -29,7 +29,7 @@ public class TimeZoneDAOTester {
 	public void collegeParkTest() throws Exception {
 		TimeZoneDAO dao = new TimeZoneDAO();
 		String timeZone = dao.getTimeZone(39.0103227,-76.9124463);
-		_logger.debug("timeZone: " + timeZone);
+		logger.debug("timeZone: " + timeZone);
 		Assert.assertEquals("America/New_York", timeZone);
 	}
 	
@@ -37,7 +37,7 @@ public class TimeZoneDAOTester {
 	public void toledoTest() throws Exception {
 		TimeZoneDAO dao = new TimeZoneDAO();
 		String timeZone = dao.getTimeZone(41.6566619,-83.6444444);
-		_logger.debug("timeZone: " + timeZone);
+		logger.debug("timeZone: " + timeZone);
 		Assert.assertEquals("America/New_York", timeZone);
 	}
 	
@@ -45,7 +45,7 @@ public class TimeZoneDAOTester {
 	public void indianapolisTest() throws Exception {
 		TimeZoneDAO dao = new TimeZoneDAO();
 		String timeZone = dao.getTimeZone(39.7799637,-86.2731768);
-		_logger.debug("timeZone: " + timeZone);
+		logger.debug("timeZone: " + timeZone);
 		Assert.assertEquals("America/Indiana/Indianapolis", timeZone);
 	}
 
