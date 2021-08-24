@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.google.gson.Gson;
 
@@ -27,13 +27,13 @@ public class TimeZoneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LogManager.getLogger(TimeZoneServlet.class);
 	private static final Pattern timeZonePattern = Pattern.compile("/(?<latitude>[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+))/(?<longitude>[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+))/timeZone", Pattern.CASE_INSENSITIVE);
-	private static TimeZoneDAO _dao = null;
+	private static TimeZoneDAO dao = null;
 	
 	private static synchronized TimeZoneDAO getDAO() throws IOException {
-		if (_dao == null) {
-			_dao = new TimeZoneDAO();
+		if (dao == null) {
+			dao = new TimeZoneDAO();
 		}
-		return _dao;
+		return dao;
  	}
 	
 	@Override
